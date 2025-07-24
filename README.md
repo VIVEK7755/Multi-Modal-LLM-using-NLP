@@ -28,21 +28,21 @@ This project demonstrates a multimodal architecture that processes and generates
 
 ---
 
-## 🏗️ Architecture
+### 🏗️ Architecture
 
 ```mermaid
 flowchart TD
-    A[Input Image + Text] --> B[CLIP ViT-L/14 Encoder]
-    A2[Text Tokens (BPE)] --> C[OPT-6.7B Language Model]
-    B --> D[Linear Projection Layers]
+    A["Input Image + Text"] --> B["CLIP ViT-L/14 Encoder"]
+    A2["Text Tokens (BPE)"] --> C["OPT 6.7B Language Model"]
+    B --> D["Linear Projection Layers"]
     C --> D
-    D --> E[Multimodal Alignment via [RET]]
-    E --> F[Text Generation / Image Retrieval]
+    D --> E["Multimodal Alignment via [RET]"]
+    E --> F["Text Generation / Image Retrieval"]
 ```
 
 * Embeddings from CLIP and OPT are aligned via learnable projection layers.
 * A `[RET]` token anchors visual information into the token stream.
-* Trained on multitask loss: image captioning (MLE) + retrieval (InfoNCE).
+* Trained on multitask loss: image captioning (**MLE**) + retrieval (**InfoNCE**).
 
 ---
 
